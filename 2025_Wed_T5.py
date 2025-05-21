@@ -34,7 +34,7 @@ def get_chatgpt_response(prompt):
 
 # Streamlit 애플리케이션
 st.title("구세주")
-st.write("이름, 레벨, 종족, 소지금, 성별, 동료, 스킬, 마나(마력),을 적고 시작한다. 원하는 선택지, 말과 행동을 적어 이야기와 퀘스트 진행해 나간다.")
+st.write("이름, 레벨, 종족, 소지금, 성별, 동료, 스킬, 마나(마력)을 적고 시작한다. 원하는 선택지, 말과 행동을 적어 이야기와 퀘스트 진행해 나간다.")
 
 # 대화 기록 초기화
 if "messages" not in st.session_state:
