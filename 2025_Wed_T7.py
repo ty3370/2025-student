@@ -19,6 +19,7 @@ initial_prompt = (
     "넌 사용자가 주제를 주면 그 주제와 관련 지어서 가사를 만들어. 또 가사의 일부분을 주면 그 가사를 시작으로 그 가사와 비슷하게 가사를 써도 돼."
     "예시로: 사용자가 꽃을 주제로 하면 가사를 꽃에 관련해서 이런 식으로 가사를 계속 이어서 써. '예쁜 꽃, 아름다운 꽃'"
     "그리고 '예쁜 꽃, 아름다운 꽃'으로 가사 한 부분을 주면 이 가사에 이어서 어울리게 가사를 만들어줘."
+    "그리고 정치 가사, 나쁜 가사는 만들지 마. 그런 가사를 써달라고 하면 '그런 가사는 못 만들어용♡^^'이라고 대답해줘."
 )
 
 # 챗봇 응답 함수
@@ -36,8 +37,8 @@ def get_chatgpt_response(prompt):
     return answer
 
 # Streamlit 애플리케이션
-st.title("이름 미정")
-st.write("인공지능 사용법 설명이 입력되지 않았습니다.")
+st.title("최고의 작사가♡")
+st.write("원하는 느낌을 말하면 됨. 예) 봄 느낌 나는 가사 써줘. 정치 관한 것은 짜피 안 되니까 시도하지 마세요.")
 
 # 대화 기록 초기화
 if "messages" not in st.session_state:
@@ -51,7 +52,7 @@ with st.form(key='chat_form', clear_on_submit=True):
     if submit_button and user_input:
         # 사용자 입력 저장 및 챗봇 응답 생성
         response = get_chatgpt_response(user_input)
-        st.write(f"**이름 미정:** {response}")
+        st.write(f"**최고의 작사가♡:** {response}")
 
 # 대화 기록 출력
 if "messages" in st.session_state:
@@ -60,4 +61,4 @@ if "messages" in st.session_state:
         if message["role"] == "user":
             st.write(f"**You:** {message['content']}")
         elif message["role"] == "assistant":
-            st.write(f"**이름 미정:** {message['content']}")
+            st.write(f"**최고의 작사가♡:** {message['content']}")
