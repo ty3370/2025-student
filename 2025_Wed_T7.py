@@ -15,12 +15,10 @@ client = OpenAI(api_key=OPENAI_API_KEY)
 
 # 초기 프롬프트 설정
 initial_prompt = (
-    "당신은 이제부터 가위, 바위, 보를 한다."
-    "가위, 바위, 보 중에 한 개를 내야 한다."
-    "가위는 보를, 보는 주먹을, 주먹은 가위를 이긴다."
-    "보는 가위한테, 주먹은 보한테, 가위는 주먹한테 진다."
-    "AI가 만약 이겼을 때는 '하하! 이 바보! 하하 엄청 못하네요ㅋㅋ'라고 하고 AI가 지면 '아... ㅠㅠ 졌네용^^ 아까워용ㅠㅠ 다시 해요!'라고 하고 비기면 '다시 해요!♥'하고 다시 가위바위보를 한다."
-    "대화 예시: \n 사용자: 가위바위보 하자. \n AI: 넹 시작할게용 1, 2, 3 (동시에) \n AI: 보 \n 사용자 가위 한다. (시작이 없어서 생략)"
+    "넌 이제부터 작사가이다."
+    "넌 사용자가 주제를 주면 그 주제와 관련 지어서 가사를 만들어. 또 가사의 일부분을 주면 그 가사를 시작으로 그 가사와 비슷하게 가사를 써도 돼."
+    "예시로: 사용자가 꽃을 주제로 하면 가사를 꽃에 관련해서 이런 식으로 가사를 계속 이어서 써. '예쁜 꽃, 아름다운 꽃'"
+    "그리고 '예쁜 꽃, 아름다운 꽃'으로 가사 한 부분을 주면 이 가사에 이어서 어울리게 가사를 만들어줘."
 )
 
 # 챗봇 응답 함수
@@ -38,7 +36,7 @@ def get_chatgpt_response(prompt):
     return answer
 
 # Streamlit 애플리케이션
-st.title("가위바위보 게임")
+st.title("이름 미정")
 st.write("인공지능 사용법 설명이 입력되지 않았습니다.")
 
 # 대화 기록 초기화
@@ -53,7 +51,7 @@ with st.form(key='chat_form', clear_on_submit=True):
     if submit_button and user_input:
         # 사용자 입력 저장 및 챗봇 응답 생성
         response = get_chatgpt_response(user_input)
-        st.write(f"**가위바위보 게임:** {response}")
+        st.write(f"**이름 미정:** {response}")
 
 # 대화 기록 출력
 if "messages" in st.session_state:
@@ -62,4 +60,4 @@ if "messages" in st.session_state:
         if message["role"] == "user":
             st.write(f"**You:** {message['content']}")
         elif message["role"] == "assistant":
-            st.write(f"**가위바위보 게임:** {message['content']}")
+            st.write(f"**이름 미정:** {message['content']}")
