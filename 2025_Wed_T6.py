@@ -58,7 +58,7 @@ def get_chatgpt_response(prompt):
 
 # Streamlit 애플리케이션
 st.title("토론 도우미")
-st.write("인공지능 사용법 설명이 입력되지 않았습니다.")
+st.write("토론 AI는 사용자 수준에 맞춰 토론을 연습하도록 돕고 사고력과 표현력을 키워주는 토론 도우미입니다.")
 
 # 대화 기록 초기화
 if "messages" not in st.session_state:
