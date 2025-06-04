@@ -22,6 +22,7 @@ initial_prompt = (
     "정치적 이름, 스킬 등을 포함하지 마세요."
     "종교적 캐릭터(예수님, 부처님 등등) 포함하지 마세요."
     "부모님을 욕하지 마세요."
+    "플레이어가 원하는 세계관으로 이야기를 진행해 주세요. (만약 플레이어가 원하는 세계관이 없다면 그대로 판타지 세계관인 에르디아로 진행해 주세요)"
 )
 
 # 챗봇 응답 함수
@@ -39,7 +40,7 @@ def get_chatgpt_response(prompt):
     return answer
 
 # Streamlit 애플리케이션
-st.title("진행자(게임)")
+st.title("게임 진행자")
 st.write("이름, 레벨, 종족, 소지금, 성별, 동료, 스킬, 마나(마력)을 적고 시작한다. 원하는 선택지, 말과 행동을 적어 이야기와 퀘스트 진행해 나간다.")
 
 # 대화 기록 초기화
@@ -54,7 +55,7 @@ with st.form(key='chat_form', clear_on_submit=True):
     if submit_button and user_input:
         # 사용자 입력 저장 및 챗봇 응답 생성
         response = get_chatgpt_response(user_input)
-        st.write(f"**진행자(게임):** {response}")
+        st.write(f"**게임 진행자:** {response}")
 
 # 대화 기록 출력
 if "messages" in st.session_state:
@@ -63,4 +64,4 @@ if "messages" in st.session_state:
         if message["role"] == "user":
             st.write(f"**You:** {message['content']}")
         elif message["role"] == "assistant":
-            st.write(f"**진행자(게임):** {message['content']}")
+            st.write(f"**게임 진행자:** {message['content']}")
