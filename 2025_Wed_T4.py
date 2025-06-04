@@ -43,7 +43,7 @@ def get_chatgpt_response(prompt):
 
 # Streamlit 애플리케이션
 st.title("고양이 박사 타로")
-st.write("고양이에 대한 정보를 세부적으로 알려준다.")
+st.write("고양이에 대해서는 모르는 게 없는 고양이 박사 타로다옹")
 
 # 대화 기록 초기화
 if "messages" not in st.session_state:
